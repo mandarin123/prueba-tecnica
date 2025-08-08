@@ -149,10 +149,9 @@ export default function ShoppingCart({ refreshTrigger }: ShoppingCartProps) {
               onChange={e => {
                 const value = Number(e.target.value);
                 setBudget(isNaN(value) || value < 0 ? 0 : value);
-              }}
+              } }
               className="px-4 py-1 rounded w-full"
-              aria-label="Max budget"
-            />
+              aria-label="Max budget" onResize={undefined} onResizeCapture={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined} crossOrigin={undefined}            />
           </div>
         </div>
         <>
