@@ -1,36 +1,122 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Desafío Técnico: API y Carrito de Compras
 
-## Getting Started
+Solución fullstack con Next.js (API + Frontend) y TypeScript, cumpliendo todos los requisitos de la prueba técnica: endpoints RESTful, carrito en memoria, frontend React y lógica de combinación óptima de productos.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 📝 Descripción general
+
+Esta aplicación resuelve el desafío propuesto:
+- **API RESTful** con endpoints `/api/products` y `/api/cart` (GET y POST), usando rutas API de Next.js y manteniendo el carrito en memoria (sin base de datos ni autenticación).
+- **Frontend** en React (Next.js App Router), que consume la API, muestra productos, permite agregarlos al carrito y visualizar su contenido.
+- **Función avanzada** `findBestCombination(products, budget)`: encuentra la mejor combinación de productos sin exceder un presupuesto, mostrando el resultado en pantalla.
+- **Stack:** Next.js 15, React 19, TypeScript, Tailwind CSS, Material Tailwind, HeadlessUI, Heroicons.
+
+---
+
+## 🚀 Instalación y ejecución
+
+### Requisitos previos
+- Node.js >= 18
+- npm >= 9 (o yarn/pnpm)
+
+### Pasos
+1. Cloná el repositorio o descargá el código fuente.
+2. Instalá las dependencias:
+   ```bash
+   npm install
+   # o
+   yarn install
+   ```
+3. Ejecutá el entorno de desarrollo:
+   ```bash
+   npm run dev
+   # o
+   yarn dev
+   ```
+   El proyecto estará disponible en `http://localhost:3000`.
+
+### Otros comandos útiles
+- **Build producción:**
+  ```bash
+  npm run build
+  npm start
+  ```
+- **Lint:**
+  ```bash
+  npm run lint
+  ```
+
+---
+
+## ⚙️ Funcionalidades implementadas
+
+### Backend (API RESTful)
+- **GET `/api/products`**: Devuelve una lista estática de productos (mock, sin DB).
+- **POST `/api/cart`**: Recibe un ID de producto y lo agrega al carrito (en memoria).
+- **GET `/api/cart`**: Devuelve el carrito actual con los productos agregados.
+- El carrito se mantiene en memoria (no persiste entre reinicios, sin stock ni auth).
+
+### Frontend (React/Next.js)
+- **Lista de productos**: obtenida desde `/api/products`.
+- **Agregar al carrito**: usando `/api/cart` (POST).
+- **Visualización del carrito**: usando `/api/cart` (GET).
+- **Interfaz básica y responsive**: lista de productos con botón "Agregar al carrito" y vista del carrito.
+
+### Lógica avanzada: combinación óptima
+- Implementación de la función:
+  ```js
+  // Encuentra la mejor combinación de productos sin exceder el presupuesto
+  function findBestCombination(products, budget) { /* ... */ }
+  ```
+- **Entrada:** lista de productos y un presupuesto (ej: 150).
+- **Salida:** la combinación de productos de mayor valor total sin superar el presupuesto.
+- **Ejemplo:** si el presupuesto es 150 y los productos son `[60, 100, 120, 70]`, devuelve `[60, 70]` (total 130).
+- **Sección dedicada en la UI** mostrando la combinación óptima encontrada.
+
+---
+
+## 📁 Estructura principal del proyecto
+```
+├── src
+│   ├── app
+│   │   ├── page.tsx         # Página principal y lógica UI
+│   │   └── api/             # Endpoints para carrito y productos
+│   ├── components/          # ProductList, ShoppingCart, etc.
+│   ├── lib/                 # Datos mockeados y lógica combinatoria
+│   └── types/               # Tipos TypeScript
+├── public/                  # Recursos estáticos
+├── tailwind.config.js       # Configuración Tailwind
+├── next.config.js           # Configuración Next.js
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🛠️ Stack y dependencias principales
+- [Next.js](https://nextjs.org/) 15+
+- [React](https://react.dev/) 19+
+- [TypeScript](https://www.typescriptlang.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Material Tailwind](https://www.material-tailwind.com/)
+- [HeadlessUI](https://headlessui.com/)
+- [Heroicons](https://heroicons.com/)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## ✅ Buenas prácticas
+- Separación clara de lógica y presentación.
+- Componentes reutilizables y tipados.
+- Uso de rutas API para simular backend.
+- Accesibilidad y diseño moderno.
+- Listo para escalar o integrar con un backend real.
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🧪 Testing
+El proyecto está preparado para integrar herramientas como Jest y React Testing Library. (Agregar tests según necesidad.)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📤 Entrega y despliegue
+- Código listo para subir a GitHub o desplegar en plataformas como Vercel.
+- Si se despliega, incluir la URL en esta sección.
